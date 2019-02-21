@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public Rigidbody2D m_rb;
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -19,7 +20,7 @@ public class PlayerScript : MonoBehaviour
     {
         if(collision.CompareTag("Water"))
         {
-            //freeze rig
+            //m_rb.AddRelativeForce(Vector3.down);
         }
         else if (collision.CompareTag("Vine"))
         {

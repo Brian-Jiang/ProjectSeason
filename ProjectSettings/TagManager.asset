@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Water
+  - Soil
+  - Vine
+  - Wind
+  - Snow
   layers:
   - Default
   - TransparentFX
