@@ -15,4 +15,16 @@ public class PlayerScript : MonoBehaviour
     {
         
     }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Water"))
+        {
+            //freeze rig
+        }
+        else if (collision.CompareTag("Vine"))
+        {
+            //move up or down bu W&S
+            //inst 2 coillders to stop the player to go out off the vine?
+        }
+    }
 }
