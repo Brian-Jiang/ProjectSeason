@@ -5,12 +5,10 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    UnityEvent in_water;
-    UnityEvent on_vine;
-    UnityEvent wind;
 
     private Rigidbody2D m_rb;
-
+    //*******environment*************
+    private WaterEnv inwater;
     //**********xMovement**********
     private bool enabledMovement = true;
     [SerializeField] private float speed;
@@ -36,12 +34,13 @@ public class PlayerScript : MonoBehaviour
         m_rb = GetComponent<Rigidbody2D>();
         m_sr = GetComponentInChildren<SpriteRenderer>();
         m_animator = GetComponentInChildren<Animator>();
+        inwater = GetComponent<WaterEnv>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        //m_rb_vel = GetComponent<Rigidbody2D>().velocity;
+        
     }
 
     private void FixedUpdate()
@@ -115,27 +114,44 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)//maybe stay2d
     {
-        if(collision.CompareTag("Water"))
+        if (collision.CompareTag("Water"))
         {
-            m_rb.AddForce(Vector2.down*0.5f);
+            m_Grounded = false;
+            inwater.enabled = true;
+
         }
         else if (collision.CompareTag("Vine"))
         {
-            if(Input.GetKeyDown(KeyCode.W))
-            {
-                m_rb.AddForce(Vector2.up * 1f);
-            }
-            else if(Input.GetKeyDown(KeyCode.S))
-            {
-                m_rb.AddForce(Vector2.down * 1f);
-            }
-
-            //move up or down bu W&S
-            //inst 2 coillders to stop the player to go out off the vine?
+            m_Grounded = false;
+            m_rb.gravityScale = 0;
+            m_rb.velocity = Vector2.zero;
         }
-        else if(collision.CompareTag("Wind"))
+    }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Water"))
         {
+            inwater.enabled = false;
+        }
+        else if (collision.CompareTag("Vine"))
+        {
+            m_rb.gravityScale = 1;
+        }
+    }
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Vine"))
+        {
+            m_Grounded = false;
 
+            if (Input.GetKey(KeyCode.W))
+            {
+                m_rb.AddForce(Vector2.up * 8f);
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                m_rb.AddForce(Vector2.down * 8f);
+            }
         }
     }
 }
