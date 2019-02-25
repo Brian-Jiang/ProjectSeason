@@ -120,30 +120,43 @@ public class PlayerScript : MonoBehaviour
         {
             m_Grounded = false;
             m_rb.gravityScale = 0;
-            enabledMovement = false;
+            m_rb.velocity = Vector2.zero;
+            if (Input.GetKey(KeyCode.W))
+            {
+                m_rb.AddForce(Vector2.up * 8f);
+                Debug.Log("up");
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                m_rb.AddForce(Vector2.down * 8f);
+            }
+
         }
  
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.CompareTag("Vine"))
-        {
-            m_rb.gravityScale = 1;
-            enabledMovement = true;
-        }
-    }
-    void OnTirggerStay2D( Collider2D collision)
-    {
+        Debug.Log("exit");
         if (collision.CompareTag("Vine"))
         {
-            m_rb.gravityScale = 0;
-            if ( Input.GetKey(KeyCode.W))
+            m_rb.gravityScale = 1;
+            
+        }
+    }
+    void OnTirggerStay2D(Collider2D collision)
+    {
+        Debug.Log("stay");
+        if (collision.CompareTag("Vine"))
+        {
+            //m_rb.gravityScale = 0;
+            if (Input.GetKey(KeyCode.W))
             {
-                m_rb.AddForce(Vector2.up);
+                m_rb.AddForce(Vector2.up*8f);
+                Debug.Log("up");
             }
             else if(Input.GetKey(KeyCode.S))
             {
-                m_rb.AddForce(Vector2.down);
+                m_rb.AddForce(Vector2.down*8f);
             }
         }
     }
