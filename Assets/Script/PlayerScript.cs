@@ -16,10 +16,10 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float speed;
 
     //**********Jumping***********
-    [SerializeField] private Transform m_GroundCheck;
+    [SerializeField]private Transform m_GroundCheck;
     private float m_GroundedRadius = 0.2f;
     [SerializeField] private LayerMask m_Ground;
-    private bool m_Grounded = false;
+    [SerializeField]private bool m_Grounded = false;
     [SerializeField] private float m_JumpOffSpeed;
     //private bool m_Jumping = false;
 
@@ -62,7 +62,7 @@ public class PlayerScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    protected virtual void Update()
+    void Update()
     {
         if (enabledMovement)
         {
@@ -88,7 +88,7 @@ public class PlayerScript : MonoBehaviour
         return xMovement * speed;
     }
 
-    protected virtual float Jump()
+    private float Jump()
     {
         float yMovement;
 
