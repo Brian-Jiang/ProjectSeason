@@ -115,27 +115,36 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)//maybe stay2d
     {
-        if(collision.CompareTag("Water"))
-        {
-            m_rb.AddForce(Vector2.down*0.5f);
-        }
-        else if (collision.CompareTag("Vine"))
-        {
-            if(Input.GetKeyDown(KeyCode.W))
-            {
-                m_rb.AddForce(Vector2.up * 1f);
-            }
-            else if(Input.GetKeyDown(KeyCode.S))
-            {
-                m_rb.AddForce(Vector2.down * 1f);
-            }
 
-            //move up or down bu W&S
-            //inst 2 coillders to stop the player to go out off the vine?
-        }
-        else if(collision.CompareTag("Wind"))
+        if (collision.CompareTag("Vine"))
         {
-
+            m_Grounded = false;
+            m_rb.gravityScale = 0;
+            enabledMovement = false;
+        }
+ 
+    }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Vine"))
+        {
+            m_rb.gravityScale = 1;
+            enabledMovement = true;
+        }
+    }
+    void OnTirggerStay2D( Collider2D collision)
+    {
+        if (collision.CompareTag("Vine"))
+        {
+            m_rb.gravityScale = 0;
+            if ( Input.GetKey(KeyCode.W))
+            {
+                m_rb.AddForce(Vector2.up);
+            }
+            else if(Input.GetKey(KeyCode.S))
+            {
+                m_rb.AddForce(Vector2.down);
+            }
         }
     }
 }
