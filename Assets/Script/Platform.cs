@@ -25,14 +25,14 @@ public class Platform : MonoBehaviour
         if(index < m_movements.Length)
         {
             StartCoroutine(Move(new Vector2(m_movements[index].x, m_movements[index].y), m_movements[index].time));
-            index++;
+            
         }
         else if(loop)
         {
             index = 0;
             StartCoroutine(Move(new Vector2(m_movements[index].x, m_movements[index].y), m_movements[index].time));
         }
-
+        index++;
     }
 
     // Start is called before the first frame update
@@ -44,14 +44,9 @@ public class Platform : MonoBehaviour
     IEnumerator Move(Vector2 movement, float time)
     {
         m_rb2d.velocity = movement / time;
+        Debug.Log(index + " " + movement + " " + time);
         yield return new WaitForSeconds(time);
         m_rb2d.velocity = Vector2.zero;
         NextMove();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
