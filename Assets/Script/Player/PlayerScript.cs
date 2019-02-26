@@ -187,4 +187,9 @@ public class PlayerScript : MonoBehaviour
             m_parentRB = null;
         }
     }
+
+    private void OnDestroy()
+    {
+        GameController.instance.GameOver();
+    }
 }
