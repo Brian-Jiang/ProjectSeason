@@ -44,7 +44,7 @@ public class Platform : MonoBehaviour
     IEnumerator Move(Vector2 movement, float time)
     {
         m_rb2d.velocity = movement / time;
-        Debug.Log(index + " " + movement + " " + time);
+        //Debug.Log(index + " " + movement + " " + time);
         yield return new WaitForSeconds(time);
         m_rb2d.velocity = Vector2.zero;
         NextMove();

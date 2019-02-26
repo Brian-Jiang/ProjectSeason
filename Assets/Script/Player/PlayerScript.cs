@@ -31,6 +31,10 @@ public class PlayerScript : MonoBehaviour
     //**********Climb**********
     private bool enabledClimb = false;
 
+    //**********Platform**********
+    private bool onPlatform = false;
+    [SerializeField]private Rigidbody2D m_parentRB;
+
 
     private Vector3 m_rb_vel;
 
@@ -67,6 +71,15 @@ public class PlayerScript : MonoBehaviour
     {
         float xMovement = 0f, yMovement = 0f;
 
+        if(onPlatform)
+        {
+            if(m_parentRB)
+                xMovement += m_parentRB.velocity.x;
+            //Debug.Log(m_parentRB.velocity.x);
+        }
+
+        //Debug.Log(xMovement);
+
         if (enabledMovement)
         {
             xMovement += Move();
@@ -82,9 +95,12 @@ public class PlayerScript : MonoBehaviour
             yMovement += Climb();
         }
 
-        m_animator.SetFloat("speed", Mathf.Abs(m_rb.velocity.x));
-
         m_rb.velocity = new Vector2(xMovement, yMovement);
+
+        if(onPlatform)
+            m_animator.SetFloat("speed", Mathf.Abs(m_rb.velocity.x - m_parentRB.velocity.x));
+        else
+            m_animator.SetFloat("speed", Mathf.Abs(m_rb.velocity.x));
     }
 
     private float Move()
@@ -129,7 +145,7 @@ public class PlayerScript : MonoBehaviour
     }
 
 
-    void OnTriggerEnter2D(Collider2D collision)//maybe stay2d
+    void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (collision.CompareTag("Vine"))
@@ -139,8 +155,8 @@ public class PlayerScript : MonoBehaviour
             enabledClimb = true;
             enabledJump = false;
         }
-
     }
+    
     void OnTriggerExit2D(Collider2D collision)
     {
 
@@ -152,19 +168,23 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Platform"))
         {
-             this.transform.parent = collision.collider.transform;
+            onPlatform = true;
+            //this.transform.SetParent(collision.transform);
+            m_parentRB = collision.collider.GetComponent<Rigidbody2D>();
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Platform"))
         {
-            this.transform.parent = null;
+            onPlatform = false;
+            //this.transform.parent = null;
+            m_parentRB = null;
         }
     }
 }
