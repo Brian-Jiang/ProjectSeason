@@ -50,8 +50,9 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        if(textManagerScript)
-            textManagerScript.SetGameStatusText("Game Over\n Press 'R' to Restart");
+        if(!textManagerScript)
+            textManagerScript = GameObject.FindGameObjectWithTag("Text Manager").GetComponent<TextManager>();
+        textManagerScript.SetGameStatusText("Game Over\n Press 'R' to Restart");
         m_GameOver = true;
     }
 
@@ -63,7 +64,6 @@ public class GameController : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        textManagerScript = GameObject.FindGameObjectWithTag("Text Manager").GetComponent<TextManager>();
         
     }
 }
