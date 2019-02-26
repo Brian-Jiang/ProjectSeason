@@ -21,15 +21,20 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private LayerMask m_Ground;
     private bool m_Grounded = false;
     [SerializeField] private float m_JumpOffSpeed;
-    //private bool m_Jumping = false;
+    private bool enabledJump = true;
 
     //**********Animation**********
     private Animator m_animator;
     private SpriteRenderer m_sr;
     private bool FlipX = false;
-    
+
+    //**********Climb**********
+    private bool enabledClimb = false;
+
 
     private Vector3 m_rb_vel;
+
+    
 
     private void Awake()
     {
@@ -38,10 +43,8 @@ public class PlayerScript : MonoBehaviour
         m_animator = GetComponentInChildren<Animator>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        //m_rb_vel = GetComponent<Rigidbody2D>().velocity;
     }
 
     private void FixedUpdate()
@@ -51,12 +54,10 @@ public class PlayerScript : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, m_GroundedRadius, m_Ground);
         for (int i = 0; i < colliders.Length; i++)
         {
-            if (colliders[i].gameObject != gameObject)
+            if (colliders[i].gameObject != gameObject && !colliders[i].gameObject.CompareTag("Vine"))
             {
-                //if(m_rb.velocity.y <= 0)
                 m_Grounded = true;
                 m_animator.SetBool("grounded", true);
-                //m_Jumping = false;
             }
         }
     }
@@ -64,15 +65,26 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
+        float xMovement = 0f, yMovement = 0f;
+
         if (enabledMovement)
         {
-            float xMovement = Move();
-            float yMovement = Jump();
-            m_rb.velocity = new Vector2(xMovement, yMovement);
+            xMovement += Move();
         }
 
+        if(enabledJump)
+        {
+            yMovement += Jump();
+        }
+
+        if (enabledClimb)
+        {
+            yMovement += Climb();
+        }
 
         m_animator.SetFloat("speed", Mathf.Abs(m_rb.velocity.x));
+
+        m_rb.velocity = new Vector2(xMovement, yMovement);
     }
 
     private float Move()
@@ -92,22 +104,26 @@ public class PlayerScript : MonoBehaviour
     {
         float yMovement;
 
-        if(Input.GetButtonDown("Jump") && m_Grounded)
+        if (Input.GetButtonDown("Jump") && m_Grounded)
         {
             yMovement = m_JumpOffSpeed;
-            //Debug.Log("Jumped");
             m_Grounded = false;
             m_animator.SetBool("grounded", false);
         }
-        //else
-        //    yMovement = m_rb.velocity.y;
-        else 
+        else
         {
             yMovement = m_rb.velocity.y;
 
             if (yMovement > 0 && !Input.GetButton("Jump"))
                 yMovement = 0.5f * yMovement;
         }
+        return yMovement;
+    }
+
+    float Climb()
+    {
+        float yMovement = Input.GetAxisRaw("Vertical");
+        m_Grounded = false;
 
         return yMovement;
     }
@@ -118,39 +134,21 @@ public class PlayerScript : MonoBehaviour
 
         if (collision.CompareTag("Vine"))
         {
-            m_Grounded = false;
             m_rb.gravityScale = 0;
             m_rb.velocity = Vector2.zero;
-            
-
+            enabledClimb = true;
+            enabledJump = false;
         }
- 
+
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("exit");
+
         if (collision.CompareTag("Vine"))
         {
             m_rb.gravityScale = 1;
-            
+            enabledClimb = false;
+            enabledJump = true;
         }
     }
-    void OnTriggerStay2D(Collider2D collision)
-    {
-        Debug.Log("stay");
-        if (collision.CompareTag("Vine"))
-        {
-            //m_rb.gravityScale = 0;
-            if (Input.GetKey(KeyCode.W))
-            {
-                m_rb.AddForce(Vector2.up * 8f);
-                Debug.Log("up");
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                m_rb.AddForce(Vector2.down * 8f);
-            }
-        }
-    }
-    
 }
