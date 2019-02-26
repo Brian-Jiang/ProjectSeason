@@ -20,6 +20,7 @@ public class Spike : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            Debug.Log("des");
             Destroy(collision.gameObject);
         }
 
