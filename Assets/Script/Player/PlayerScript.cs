@@ -125,7 +125,7 @@ public class PlayerScript : MonoBehaviour
         float yMovement = Input.GetAxisRaw("Vertical");
         m_Grounded = false;
 
-        return yMovement;
+        return yMovement*2f;
     }
 
 
