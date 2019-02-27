@@ -7,7 +7,7 @@ public class EnemyShooting : MonoBehaviour
     [SerializeField] public GameObject tra_bullet;
     [SerializeField] public GameObject bullet;
     [SerializeField] public Vector3 firep;
-    [SerializeField] public bool trackingbul = false;
+    [SerializeField] public bool trackingbul;
     private GameObject cur_player;
     private GameController m_control;
     private SpriteRenderer m_render;
@@ -16,12 +16,12 @@ public class EnemyShooting : MonoBehaviour
  
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         //m_control = GameObject.FindGameObjectWithTag("GameCon")
         m_control = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         cur_player = m_control.GetPlayer();
-        m_render = this.GetComponent<SpriteRenderer>();
+        m_render = GetComponent<SpriteRenderer>();
         nextAttack = Time.time + att_frq;
 
     }
