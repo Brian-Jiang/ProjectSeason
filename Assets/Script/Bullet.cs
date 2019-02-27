@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
         if (target != null)
         {
             Debug.Log("Not null");
-            currentDirection = (target.transform.position - transform.position);
+            currentDirection = (target.transform.position - transform.position).normalized;
             //m_rdg.velocity = currentDirection * speed;
         }
     }
@@ -31,6 +31,7 @@ public class Bullet : MonoBehaviour
     {
         if (Time.time > lifeTime)
             Destroy(gameObject);
+        Debug.Log(m_rdg.velocity);
         m_rdg.AddForce(currentDirection);
 
     }
