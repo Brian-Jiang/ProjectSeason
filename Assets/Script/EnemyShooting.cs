@@ -13,8 +13,7 @@ public class EnemyShooting : MonoBehaviour
     private SpriteRenderer m_render;
     private float nextAttack;
     private Vector2 firePosition;
-    private Bullet bullet_n;
-    private Bullet_Tra bullet_t;
+ 
 
     // Start is called before the first frame update
     void Awake()
@@ -41,13 +40,13 @@ public class EnemyShooting : MonoBehaviour
         if(trackingbul == false)
         {
             GameObject bulletobj = Instantiate(bullet, firePosition, transform.rotation);
-            bullet_n = bulletobj.GetComponent<Bullet>();
+            Bullet bullet_n = bulletobj.GetComponent<Bullet>();
             bullet_n.SetTarget(cur_player);
         }
         else
         {
             GameObject bulletobj = Instantiate(tra_bullet, firePosition, transform.rotation);
-            bullet_t = bulletobj.GetComponent<Bullet_Tra>();
+            Bullet_Tra bullet_t = bulletobj.GetComponent<Bullet_Tra>();
             bullet_t.SetTarget(cur_player);
         }
         
