@@ -29,7 +29,8 @@ public class PlayerScript : MonoBehaviour
     private bool FlipX = false;
 
     //**********Climb**********
-    private bool enabledClimb = false;
+    [SerializeField]private bool enabledClimb = false;
+    [SerializeField]private bool isClimbing = false;
 
     //**********Platform**********
     private bool onPlatform = false;
@@ -126,7 +127,7 @@ public class PlayerScript : MonoBehaviour
             m_Grounded = false;
             m_animator.SetBool("grounded", false);
         }
-        else if(enabledClimb)
+        else if(isClimbing)
         {
             yMovement = 0f;
         }
@@ -143,8 +144,17 @@ public class PlayerScript : MonoBehaviour
 
     float Climb()
     {
+        //enabledJump = false;
+        
         float yMovement = Input.GetAxisRaw("Vertical");
-        m_Grounded = false;
+        //m_Grounded = false;
+        if (!m_Grounded && yMovement != 0f)
+        {
+            m_rb.gravityScale = 0;
+            isClimbing = true;
+        }
+        else
+            isClimbing = false;
 
         return yMovement*2f;
     }
@@ -155,10 +165,10 @@ public class PlayerScript : MonoBehaviour
 
         if (collision.CompareTag("Vine"))
         {
-            m_rb.gravityScale = 0;
+            
             m_rb.velocity = Vector2.zero;
             enabledClimb = true;
-            enabledJump = false;
+            
         }
     }
     
@@ -169,7 +179,8 @@ public class PlayerScript : MonoBehaviour
         {
             m_rb.gravityScale = 1;
             enabledClimb = false;
-            enabledJump = true;
+            isClimbing = false;
+            //enabledJump = true;
         }
     }
 
