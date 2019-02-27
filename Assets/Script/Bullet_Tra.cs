@@ -34,11 +34,13 @@ public class Bullet_Tra : MonoBehaviour
         if (Time.time > lifeTime)
         {
             Destroy(gameObject);
-
         }
-        direction = (target.transform.position - transform.position).normalized;
-        m_rdg.velocity = Vector2.zero;
-        m_rdg.AddForce(direction * speed);
+        
+
+        
+        if(target)
+            direction = (target.transform.position - transform.position).normalized;
+        
         float angle = Vector2.SignedAngle(currentDirection, direction);
 
         float sin = Mathf.Sin(rotateSpeed * Mathf.Sign(angle) * Mathf.Deg2Rad * Time.deltaTime);
@@ -51,7 +53,10 @@ public class Bullet_Tra : MonoBehaviour
 
 
         transform.Rotate(0f, 0f, rotateSpeed * Mathf.Sign(angle) * Time.deltaTime);
-        
+
+        m_rdg.velocity = currentDirection * speed;
+        //m_rdg.AddForce(direction * speed);
+
     }
 
     public void SetTarget(GameObject Target)

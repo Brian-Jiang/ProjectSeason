@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   render: {fileID: 0}
-  speed: 200
+  speed: 3
   rotateSpeed: 0
   lifeTime: 5
 --- !u!50 &8919196176299532809

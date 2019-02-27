@@ -21,7 +21,7 @@ public class EnemyShooting : MonoBehaviour
         //m_control = GameObject.FindGameObjectWithTag("GameCon")
         m_control = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         cur_player = m_control.GetPlayer();
-        m_render = GetComponent<SpriteRenderer>();
+        m_render = GetComponentInChildren<SpriteRenderer>();
         nextAttack = Time.time + att_frq;
 
     }

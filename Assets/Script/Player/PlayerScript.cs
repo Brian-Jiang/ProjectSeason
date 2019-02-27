@@ -19,7 +19,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private Transform m_GroundCheck;
     private float m_GroundedRadius = 0.2f;
     [SerializeField] private LayerMask m_Ground;
-    private bool m_Grounded = false;
+    [SerializeField]private bool m_Grounded = false;
     [SerializeField] private float m_JumpOffSpeed;
     private bool enabledJump = true;
 
@@ -126,6 +126,10 @@ public class PlayerScript : MonoBehaviour
             m_Grounded = false;
             m_animator.SetBool("grounded", false);
         }
+        else if(enabledClimb)
+        {
+            yMovement = 0f;
+        }
         else
         {
             yMovement = m_rb.velocity.y;
@@ -133,6 +137,7 @@ public class PlayerScript : MonoBehaviour
             if (yMovement > 0 && !Input.GetButton("Jump"))
                 yMovement = 0.5f * yMovement;
         }
+
         return yMovement;
     }
 

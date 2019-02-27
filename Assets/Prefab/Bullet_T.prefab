@@ -68,8 +68,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   render: {fileID: 0}
-  speed: 80
-  rotateSpeed: 0
+  speed: 2
+  rotateSpeed: 90
   lifeTime: 7
 --- !u!212 &7847422647243859741
 SpriteRenderer:
