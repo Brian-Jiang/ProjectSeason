@@ -1317,7 +1317,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1341,7 +1341,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956661539}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8143601, y: 0.6663501, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1430,7 +1430,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070608777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.182858, y: 0.66887593, z: -10}
+  m_LocalPosition: {x: 35.828396, y: 1.3188759, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 540674377}
@@ -4678,7 +4678,7 @@ PrefabInstance:
     - target: {fileID: 8076459162143014349, guid: a5732c06b22b0d14f9c2466dcb9ff79e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5
+      value: -1.7
       objectReference: {fileID: 0}
     - target: {fileID: 8076459162143014349, guid: a5732c06b22b0d14f9c2466dcb9ff79e,
         type: 3}
@@ -4733,12 +4733,12 @@ PrefabInstance:
     - target: {fileID: 8076459162143014348, guid: a5732c06b22b0d14f9c2466dcb9ff79e,
         type: 3}
       propertyPath: m_movements.Array.data[0].y
-      value: -7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8076459162143014348, guid: a5732c06b22b0d14f9c2466dcb9ff79e,
         type: 3}
       propertyPath: m_movements.Array.data[1].y
-      value: 7
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8076459162143014348, guid: a5732c06b22b0d14f9c2466dcb9ff79e,
         type: 3}
@@ -4748,12 +4748,12 @@ PrefabInstance:
     - target: {fileID: 8076459162143014348, guid: a5732c06b22b0d14f9c2466dcb9ff79e,
         type: 3}
       propertyPath: m_movements.Array.data[0].time
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8076459162143014348, guid: a5732c06b22b0d14f9c2466dcb9ff79e,
         type: 3}
       propertyPath: m_movements.Array.data[1].time
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5732c06b22b0d14f9c2466dcb9ff79e, type: 3}
@@ -4807,6 +4807,7 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 47.23546, y: 9.561428}
+      - {x: 49.4891, y: 54.781876}
       - {x: -8.995847, y: 9.756108}
       - {x: -9.001601, y: -6.196811}
       - {x: 47.11037, y: -5.848202}
@@ -4951,12 +4952,12 @@ PrefabInstance:
     - target: {fileID: 6233267575121485318, guid: bf50a941683fe3042844d8adc162f320,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.53
+      value: 34.5
       objectReference: {fileID: 0}
     - target: {fileID: 6233267575121485318, guid: bf50a941683fe3042844d8adc162f320,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.25
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 6233267575121485318, guid: bf50a941683fe3042844d8adc162f320,
         type: 3}
