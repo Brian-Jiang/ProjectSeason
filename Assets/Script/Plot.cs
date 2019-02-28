@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Plot : MonoBehaviour
 {
-    [SerializeField] public GameObject m_vine;
+    [SerializeField] private GameObject m_vine;
     // Start is called before the first frame update
     void Start()
     {

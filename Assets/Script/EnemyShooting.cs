@@ -2,12 +2,12 @@
 
 public class EnemyShooting : MonoBehaviour
 {
-    [SerializeField] public float att_dis;
-    [SerializeField] public float att_frq;
-    [SerializeField] public GameObject tra_bullet;
-    [SerializeField] public GameObject bullet;
-    [SerializeField] public Vector3 firep;
-    [SerializeField] public bool trackingbul;
+    [SerializeField] private float att_dis;
+    [SerializeField] private float att_frq;
+    [SerializeField] private GameObject tra_bullet;
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private Vector3 firep;
+    [SerializeField] private bool trackingbul;
     private GameObject cur_player;
     private GameController m_control;
     private SpriteRenderer m_render;

@@ -111,7 +111,7 @@ public class PlayerScript : MonoBehaviour
             FlipX = !FlipX;
             m_sr.flipX = FlipX;
         }
-        Debug.Log(xMovement + " " + FlipX);
+        //Debug.Log(xMovement + " " + FlipX);
         return xMovement * speed;
     }
 

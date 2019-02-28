@@ -6,13 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public static GameController instance;
-
+    public static GameController instance { get; private set; }
     private static GameObject m_player;
 
-
     private bool m_GameOver = false;
+    [SerializeField]private Vector2 m_LastCheckPoint = Vector2.zero;
+
     private GameObject textManagerScript;
+
+
     private void Awake()
     {
         if (instance == null)
@@ -31,22 +33,21 @@ public class GameController : MonoBehaviour
         m_player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    public GameObject GetPlayer()
-    {
-        return m_player;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (m_GameOver && Input.GetKeyDown(KeyCode.R))
         {
             LoadLevel();
+        }
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        m_player = GameObject.FindGameObjectWithTag("Player");
+
+        if (m_LastCheckPoint != Vector2.zero)
+        {
+            m_player.transform.position = m_LastCheckPoint;
         }
     }
 
@@ -63,5 +64,15 @@ public class GameController : MonoBehaviour
     {
         m_GameOver = false;
         SceneManager.LoadScene("Prototype");
+    }
+
+    public void CheckPoint(Vector2 checkpoint)
+    {
+        m_LastCheckPoint = checkpoint;
+    }
+
+    public GameObject GetPlayer()
+    {
+        return m_player;
     }
 }

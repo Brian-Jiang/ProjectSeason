@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public SpriteRenderer render;
     private GameObject target;
     private Rigidbody2D m_rdg;
     [SerializeField] private float speed;
     [SerializeField] private float rotateSpeed;
     [SerializeField] private float lifeTime = 5f;
     private Vector2 currentDirection;
-    // Start is called before the first frame update
+
+
     void Start()
     {
         lifeTime += Time.time;
-        render = GetComponent<SpriteRenderer>();
         m_rdg = GetComponent<Rigidbody2D>();
         if (target != null)
         {
