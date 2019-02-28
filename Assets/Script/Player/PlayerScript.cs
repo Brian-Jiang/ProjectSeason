@@ -74,12 +74,9 @@ public class PlayerScript : MonoBehaviour
 
         if(onPlatform)
         {
-            if(m_parentRB)
+            if (m_parentRB)
                 xMovement += m_parentRB.velocity.x;
-            //Debug.Log(m_parentRB.velocity.x);
         }
-
-        //Debug.Log(xMovement);
 
         if (enabledMovement)
         {
@@ -95,7 +92,7 @@ public class PlayerScript : MonoBehaviour
         {
             yMovement += Climb();
         }
-
+        
         m_rb.velocity = new Vector2(xMovement, yMovement);
 
         if(onPlatform)
@@ -138,23 +135,25 @@ public class PlayerScript : MonoBehaviour
             if (yMovement > 0 && !Input.GetButton("Jump"))
                 yMovement = 0.5f * yMovement;
         }
-
+        
         return yMovement;
     }
 
     float Climb()
     {
-        //enabledJump = false;
         
         float yMovement = Input.GetAxisRaw("Vertical");
-        //m_Grounded = false;
+
         if (!m_Grounded && yMovement != 0f)
         {
             m_rb.gravityScale = 0;
             isClimbing = true;
         }
-        else
+        else if(m_Grounded)
+        {
+            m_rb.gravityScale = 1;
             isClimbing = false;
+        }
 
         return yMovement*2f;
     }
@@ -165,10 +164,7 @@ public class PlayerScript : MonoBehaviour
 
         if (collision.CompareTag("Vine"))
         {
-            
-            m_rb.velocity = Vector2.zero;
             enabledClimb = true;
-            
         }
     }
     
@@ -180,7 +176,6 @@ public class PlayerScript : MonoBehaviour
             m_rb.gravityScale = 1;
             enabledClimb = false;
             isClimbing = false;
-            //enabledJump = true;
         }
     }
 
@@ -189,7 +184,6 @@ public class PlayerScript : MonoBehaviour
         if (collision.collider.CompareTag("Platform"))
         {
             onPlatform = true;
-            //this.transform.SetParent(collision.transform);
             m_parentRB = collision.collider.GetComponent<Rigidbody2D>();
         }
     }
@@ -199,7 +193,6 @@ public class PlayerScript : MonoBehaviour
         if (collision.collider.CompareTag("Platform"))
         {
             onPlatform = false;
-            //this.transform.parent = null;
             m_parentRB = null;
         }
     }
