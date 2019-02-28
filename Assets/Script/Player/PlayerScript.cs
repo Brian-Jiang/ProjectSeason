@@ -26,7 +26,7 @@ public class PlayerScript : MonoBehaviour
     //**********Animation**********
     private Animator m_animator;
     private SpriteRenderer m_sr;
-    private bool FlipX = false;
+    private bool FlipX = true;
 
     //**********Climb**********
     [SerializeField]private bool enabledClimb = false;
@@ -107,10 +107,11 @@ public class PlayerScript : MonoBehaviour
 
         if ((xMovement > 0 && !FlipX) || (xMovement < 0 && FlipX))
         {
+            
             FlipX = !FlipX;
             m_sr.flipX = FlipX;
         }
-
+        Debug.Log(xMovement + " " + FlipX);
         return xMovement * speed;
     }
 

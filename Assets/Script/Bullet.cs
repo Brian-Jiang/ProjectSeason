@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
         m_rdg = GetComponent<Rigidbody2D>();
         if (target != null)
         {
-            Debug.Log("Not null");
+            //Debug.Log("Not null");
             currentDirection = (target.transform.position - transform.position).normalized;
             
             m_rdg.velocity = currentDirection *speed;
@@ -36,20 +36,20 @@ public class Bullet : MonoBehaviour
             
         }
             
-        Debug.Log(m_rdg.velocity);
+        //Debug.Log(m_rdg.velocity);
        
 
     }
     public void SetTarget(GameObject Target)
     {
-        Debug.Log("set target");
+        //Debug.Log("set target");
         target = Target;
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if ( collision.CompareTag("Player"))
         {
-            Debug.Log("dis player");
+            //Debug.Log("dis player");
             Destroy(target);
         }
     }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4958889138157925846}
   m_Layer: 0
   m_Name: Game Controller
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,5 +43,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d365ca256f4414747a2c99a84e2c6cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GameStatusText: {fileID: 5649286160866843634, guid: d3e7525abf0d6de4592ddd15b2bfebb2,
-    type: 3}
