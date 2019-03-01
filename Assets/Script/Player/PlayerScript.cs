@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    UnityEvent in_water;
-    UnityEvent on_vine;
-    UnityEvent wind;
-
     private Rigidbody2D m_rb;
 
     //**********xMovement**********
@@ -31,25 +27,15 @@ public class PlayerScript : MonoBehaviour
     //**********Climb**********
     [SerializeField]private bool enabledClimb = false;
     [SerializeField]private bool isClimbing = false;
-
-    //**********Platform**********
-    private bool onPlatform = false;
-    [SerializeField]private Rigidbody2D m_parentRB;
-
+    private float m_LadderX;
 
     private Vector3 m_rb_vel;
-
     
-
     private void Awake()
     {
         m_rb = GetComponent<Rigidbody2D>();
         m_sr = GetComponentInChildren<SpriteRenderer>();
         m_animator = GetComponentInChildren<Animator>();
-    }
-
-    void Start()
-    {
     }
 
     private void FixedUpdate()
@@ -66,17 +52,10 @@ public class PlayerScript : MonoBehaviour
             }
         }
     }
-
-    // Update is called once per frame
+    
     protected virtual void Update()
     {
         float xMovement = 0f, yMovement = 0f;
-
-        if(onPlatform)
-        {
-            if (m_parentRB)
-                xMovement += m_parentRB.velocity.x;
-        }
 
         if (enabledMovement)
         {
@@ -94,11 +73,7 @@ public class PlayerScript : MonoBehaviour
         }
         
         m_rb.velocity = new Vector2(xMovement, yMovement);
-
-        if(onPlatform)
-            m_animator.SetFloat("speed", Mathf.Abs(m_rb.velocity.x - m_parentRB.velocity.x));
-        else
-            m_animator.SetFloat("speed", Mathf.Abs(m_rb.velocity.x));
+        m_animator.SetFloat("speed", Mathf.Abs(m_rb.velocity.x));
     }
 
     private float Move()
@@ -111,7 +86,7 @@ public class PlayerScript : MonoBehaviour
             FlipX = !FlipX;
             m_sr.flipX = FlipX;
         }
-        //Debug.Log(xMovement + " " + FlipX);
+        
         return xMovement * speed;
     }
 
@@ -149,6 +124,7 @@ public class PlayerScript : MonoBehaviour
         {
             m_rb.gravityScale = 0;
             isClimbing = true;
+            //this.transform.position = new Vector2(m_LadderX, this.transform.position.y);
         }
         else if(m_Grounded)
         {
@@ -162,10 +138,10 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.CompareTag("Vine"))
         {
             enabledClimb = true;
+            m_LadderX = collision.transform.position.x;
         }
     }
     
@@ -184,8 +160,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.collider.CompareTag("Platform"))
         {
-            onPlatform = true;
-            m_parentRB = collision.collider.GetComponent<Rigidbody2D>();
+            this.transform.parent = collision.collider.transform;
         }
     }
 
@@ -193,8 +168,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.collider.CompareTag("Platform"))
         {
-            onPlatform = false;
-            m_parentRB = null;
+            this.transform.parent = null;
         }
     }
 

@@ -11,14 +11,10 @@ public class Movement
 public class Platform : MonoBehaviour
 {
     [SerializeField] private Movement[] m_movements;
-    private Rigidbody2D m_rb2d;
     [SerializeField] private bool loop;
     private int index = 0;
-
-    private void Awake()
-    {
-        m_rb2d = GetComponent<Rigidbody2D>();
-    }
+    private bool m_isMoving = false;
+    private Vector2 m_movement;
 
     void NextMove()
     {
@@ -41,12 +37,18 @@ public class Platform : MonoBehaviour
         NextMove();
     }
 
+    private void Update()
+    {
+        if(m_isMoving)
+            this.transform.Translate(m_movement * Time.deltaTime);
+    }
+
     IEnumerator Move(Vector2 movement, float time)
     {
-        m_rb2d.velocity = movement / time;
-        //Debug.Log(index + " " + movement + " " + time);
+        m_movement = movement / time;
+        m_isMoving = true;
         yield return new WaitForSeconds(time);
-        m_rb2d.velocity = Vector2.zero;
+        m_isMoving = false;
         NextMove();
     }
 }
