@@ -11,6 +11,7 @@ TagManager:
   - Snow
   - Platform
   - Text Manager
+  - Tanhuang
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - tan
   - 
   - 
   - 

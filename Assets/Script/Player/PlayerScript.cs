@@ -18,7 +18,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]private bool m_Grounded = false;
     [SerializeField] private float m_JumpOffSpeed;
     private bool enabledJump = true;
-
+    
     //**********Animation**********
     private Animator m_animator;
     private SpriteRenderer m_sr;
@@ -30,7 +30,12 @@ public class PlayerScript : MonoBehaviour
     private float m_LadderX;
 
     private Vector3 m_rb_vel;
-    
+    //***********tanhuang***********
+    [SerializeField] public bool tan;
+    [SerializeField] public float tan_force;
+    [SerializeField] public float distance;
+    [SerializeField] public int layer;
+    public LayerMask groundLayer;
     private void Awake()
     {
         m_rb = GetComponent<Rigidbody2D>();
@@ -51,6 +56,19 @@ public class PlayerScript : MonoBehaviour
                 m_animator.SetBool("grounded", true);
             }
         }
+        tan = on_tan();
+        Debug.Log(tan);
+        if (tan)
+        {
+            if(Input.GetButtonDown("Jump"))
+            {
+
+            }
+            m_rb.velocity= Vector2.up * tan_force;
+   
+            
+        }
+
     }
     
     protected virtual void Update()
@@ -74,6 +92,7 @@ public class PlayerScript : MonoBehaviour
         
         m_rb.velocity = new Vector2(xMovement, yMovement);
         m_animator.SetFloat("speed", Mathf.Abs(m_rb.velocity.x));
+
     }
 
     private float Move()
@@ -143,6 +162,7 @@ public class PlayerScript : MonoBehaviour
             enabledClimb = true;
             m_LadderX = collision.transform.position.x;
         }
+        
     }
     
     void OnTriggerExit2D(Collider2D collision)
@@ -176,4 +196,23 @@ public class PlayerScript : MonoBehaviour
     {
         GameController.instance.GameOver();
     }
+    bool on_tan()
+    {
+        Vector2 position = transform.position;
+        Vector2 direction = Vector2.down;
+        Debug.DrawRay(position, direction, Color.green);
+        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
+        if (hit.collider!=null)
+        {
+            Debug.Log("not null");
+            
+                return true;
+       
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
 }

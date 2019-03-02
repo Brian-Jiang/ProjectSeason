@@ -6,12 +6,13 @@ public class SpikeMove : MonoBehaviour
 {
     [SerializeField] public float att_frq;
     [SerializeField] public float att_time;
+    [SerializeField] public float start_time;
     private float next_att;
     [SerializeField] public GameObject spike;
     // Start is called before the first frame update
     void Start()
     {
-        
+        next_att = start_time;
     }
 
     // Update is called once per frame
@@ -20,6 +21,7 @@ public class SpikeMove : MonoBehaviour
         
         if (Time.time>=next_att)
         {
+            Debug.Log(Time.time);
             Debug.Log("act");
             spike.SetActive(true);
            

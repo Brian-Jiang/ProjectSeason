@@ -129,8 +129,17 @@ MonoBehaviour:
   m_Ground:
     serializedVersion: 2
     m_Bits: 1
+  m_Grounded: 0
   m_JumpOffSpeed: 5
-  m_parentRB: {fileID: 0}
+  enabledClimb: 0
+  isClimbing: 0
+  tan: 0
+  tan_force: 500
+  distance: 0.3
+  layer: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &6233267576670152625
 GameObject:
   m_ObjectHideFlags: 0
