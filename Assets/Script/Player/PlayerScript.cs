@@ -65,10 +65,7 @@ public class PlayerScript : MonoBehaviour
 
             }
             m_rb.velocity= Vector2.up * tan_force;
-   
-            
         }
-
     }
     
     protected virtual void Update()
@@ -128,7 +125,7 @@ public class PlayerScript : MonoBehaviour
             yMovement = m_rb.velocity.y;
 
             if (yMovement > 0 && !Input.GetButton("Jump"))
-                yMovement = 0.5f * yMovement;
+                yMovement = 0.7f * yMovement;
         }
         
         return yMovement;
