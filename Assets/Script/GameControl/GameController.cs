@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     private bool m_GameOver = false;
     [SerializeField] private Vector2 m_LastCheckPoint = Vector2.zero;
 
-    private int m_currentLevel = 0;
+    private int m_currentLevel = 1;
     private int m_lives = 1;
 
     private void Awake()
