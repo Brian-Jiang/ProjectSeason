@@ -15,6 +15,7 @@ TagManager:
   - NextScene
   - Snowball
   - Bound
+  - Enemy
   layers:
   - Default
   - TransparentFX

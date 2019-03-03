@@ -7,7 +7,12 @@ public class UiManager: MonoBehaviour
     // Start is called before the first frame update
     public void StartButton()
     {
-        GameController.instance.LoadLevel();
+        GameController.instance.LoadLevel(2);
+    }
+
+    public void ResumeButton()
+    {
+        GameController.instance.ReloadLevel();
     }
 
     // Update is called once per frame

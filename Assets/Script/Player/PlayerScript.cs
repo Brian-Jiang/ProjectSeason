@@ -179,6 +179,10 @@ public class PlayerScript : MonoBehaviour
         {
             this.transform.parent = collision.collider.transform;
         }
+        else if(collision.collider.CompareTag("Enemy"))
+        {
+            GameController.instance.SetPlayerLives(0);
+        }
     }
 
     void OnCollisionExit2D(Collision2D collision)
@@ -189,10 +193,6 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
-        GameController.instance.GameOver();
-    }
     bool on_tan()
     {
         Vector2 position = transform.position;

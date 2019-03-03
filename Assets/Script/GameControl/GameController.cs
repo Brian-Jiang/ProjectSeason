@@ -10,10 +10,10 @@ public class GameController : MonoBehaviour
     private static GameObject m_player;
 
     private bool m_GameOver = false;
-    [SerializeField]private Vector2 m_LastCheckPoint = Vector2.zero;
+    [SerializeField] private Vector2 m_LastCheckPoint = Vector2.zero;
 
-    private GameObject textManagerScript;
-
+    private int m_currentLevel = 0;
+    private int m_lives = 1;
 
     private void Awake()
     {
@@ -35,9 +35,9 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (m_GameOver && Input.GetKeyDown(KeyCode.R))
+        if (m_lives <= 0 && !m_GameOver)
         {
-            LoadLevel();
+            GameOver();
         }
     }
 
@@ -53,17 +53,33 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        if(!textManagerScript)
-            textManagerScript = GameObject.FindGameObjectWithTag("Text Manager");
-        if(textManagerScript)
-            textManagerScript.GetComponent<TextManager>().SetGameStatusText("Game Over\n Press 'R' to Restart");
         m_GameOver = true;
+        SceneManager.LoadScene(0);
     }
 
-    public void LoadLevel()
+    public void ReloadLevel()
     {
         m_GameOver = false;
-        SceneManager.LoadScene("Prototype");
+        m_lives = 1;
+        SceneManager.LoadScene(m_currentLevel);
+    }
+
+    public void LoadLevel(int level)
+    {
+        m_GameOver = false;
+        m_lives = 1;
+        m_currentLevel = level;
+        SceneManager.LoadScene(level);
+        m_LastCheckPoint = Vector2.zero;
+    }
+
+    public void LoadNextLevel()
+    {
+        m_GameOver = false;
+        m_lives = 1;
+        m_currentLevel++;
+        SceneManager.LoadScene(m_currentLevel);
+        m_LastCheckPoint = Vector2.zero;
     }
 
     public void CheckPoint(Vector2 checkpoint)
@@ -74,5 +90,10 @@ public class GameController : MonoBehaviour
     public GameObject GetPlayer()
     {
         return m_player;
+    }
+
+    public void SetPlayerLives(int lives)
+    {
+        m_lives = lives;
     }
 }

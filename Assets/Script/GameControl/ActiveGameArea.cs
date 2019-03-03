@@ -6,6 +6,11 @@ public class ActiveGameArea : MonoBehaviour
 {
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Destroy(collision.gameObject);
+        if(collision.CompareTag("Player"))
+        {
+            GameController.instance.SetPlayerLives(0);
+        }
+        else
+            Destroy(collision.gameObject);
     }
 }
