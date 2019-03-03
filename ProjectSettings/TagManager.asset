@@ -12,6 +12,9 @@ TagManager:
   - Platform
   - Text Manager
   - Tanhuang
+  - NextScene
+  - Snowball
+  - Bound
   layers:
   - Default
   - TransparentFX
