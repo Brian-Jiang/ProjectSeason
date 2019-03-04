@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Snow_player : MonoBehaviour
 {
@@ -46,7 +47,7 @@ public class Snow_player : MonoBehaviour
     {
         if ( collision.CompareTag("NextScene"))
         {
-            //scene transform here
+            SceneManager.LoadScene("End"); //load the thank you for playing scene
         }
         else if ( collision.CompareTag("Snowball"))
         {
