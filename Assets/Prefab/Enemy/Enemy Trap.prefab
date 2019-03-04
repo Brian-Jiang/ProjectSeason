@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 4847700497002726600}
   - component: {fileID: 4847700497002726602}
   - component: {fileID: 4847700497002726601}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Enemy Trap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4847700497002726600
 Transform:
   m_ObjectHideFlags: 0
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemy: {fileID: 244171583357084497, guid: 6f11be7bcbb9bba4aaaf514981c1351f, type: 3}
-  x: 0
+  x: 1
   y: 1
   m_SpawnVelocity: 5
   m_SpawnPosition: {fileID: 0}
