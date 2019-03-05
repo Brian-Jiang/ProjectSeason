@@ -17,6 +17,8 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
+        m_currentLevel = SceneManager.GetActiveScene().buildIndex;
+
         if (instance == null)
         {
             instance = this;
