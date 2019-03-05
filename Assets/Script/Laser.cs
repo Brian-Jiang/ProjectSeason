@@ -5,6 +5,7 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     private LineRenderer m_lr;
+    [SerializeField] private float x, y;
     [SerializeField]private Transform m_hitPoint;
     [SerializeField] private LayerMask m_hitCheck;
     private void Awake()
@@ -23,7 +24,7 @@ public class Laser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.right, m_hitCheck);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(x,y), m_hitCheck);
         Debug.DrawLine(transform.position, hit.point);
         m_hitPoint.position = hit.point;
         m_lr.SetPosition(0, transform.position);
