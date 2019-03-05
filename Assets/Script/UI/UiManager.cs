@@ -24,6 +24,6 @@ public class UiManager: MonoBehaviour
 
     public void ToStartMenuButton()
     {
-        SceneManager.LoadScene("Start Menu");
+        SceneManager.LoadScene("Srart Menu");
     }
 }
