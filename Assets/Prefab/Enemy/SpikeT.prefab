@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   att_frq: 2
   att_time: 2
-  spike: {fileID: 6093393870013376818}
+  start_time: 0
+  spike: {fileID: 0}
 --- !u!1 &6093393870013376818
 GameObject:
   m_ObjectHideFlags: 0
