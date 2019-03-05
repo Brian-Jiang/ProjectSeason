@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Prototype.unity
     guid: 74792577f82835440ad38f713a3bf0a8
   - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 4a81bccb29c90476bbca6728ef64172a
+  - enabled: 1
     path: Assets/Scenes/Srart Menu.unity
     guid: 9b7b1c90907854219a85b64a85af554a
   - enabled: 1
@@ -17,9 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: bfbf2e012e37a814c8cd283ab51a032f
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: 4a81bccb29c90476bbca6728ef64172a
   - enabled: 1
     path: Assets/Scenes/End.unity
     guid: ebdd20e14ef3342ceb6a4e5b37cf619d
