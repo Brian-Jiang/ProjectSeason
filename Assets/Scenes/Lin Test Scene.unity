@@ -1290,6 +1290,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Trap
       objectReference: {fileID: 0}
+    - target: {fileID: 4847700497002726607, guid: 6198b8cf830e6204c9f07bdd4106c7f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4847700497002726600, guid: 6198b8cf830e6204c9f07bdd4106c7f1,
         type: 3}
       propertyPath: m_LocalPosition.x
