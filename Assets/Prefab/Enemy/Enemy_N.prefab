@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   att_dis: 20
-  att_frq: 2
+  att_frq: 10
   tra_bullet: {fileID: 1176327323267970091, guid: 0ef3170b6e20ad44d8c014e1cd035e38,
     type: 3}
   bullet: {fileID: 8919196176299532812, guid: 49e161b6083e8374e8d887ec909e2e52, type: 3}
