@@ -29,5 +29,10 @@ public class Laser : MonoBehaviour
         m_hitPoint.position = hit.point;
         m_lr.SetPosition(0, transform.position);
         m_lr.SetPosition(1, m_hitPoint.transform.position);
+
+        if(hit.transform.CompareTag("Player"))
+        {
+            GameController.instance.SetPlayerLives(0);
+        }
     }
 }
