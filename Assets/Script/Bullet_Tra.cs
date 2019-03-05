@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet_Tra : MonoBehaviour
 {
+    
     public SpriteRenderer render;
     private GameObject target;
     private Rigidbody2D m_rdg;
@@ -68,7 +69,7 @@ public class Bullet_Tra : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("dis player");
-            Destroy(target);
+            GameController.instance.SetPlayerLives(0);
         }
     }
 

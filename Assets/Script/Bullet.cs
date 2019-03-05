@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    
     private GameObject target;
     private Rigidbody2D m_rdg;
     [SerializeField] private float speed;
@@ -49,7 +50,7 @@ public class Bullet : MonoBehaviour
         if ( collision.CompareTag("Player"))
         {
             //Debug.Log("dis player");
-            Destroy(target);
+            GameController.instance.SetPlayerLives(0);
         }
     }
 }

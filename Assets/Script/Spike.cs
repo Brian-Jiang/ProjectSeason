@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,8 @@ public class Spike : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
+            /////jian ming
+            GameController.instance.SetPlayerLives(0);
         }
 
     }
