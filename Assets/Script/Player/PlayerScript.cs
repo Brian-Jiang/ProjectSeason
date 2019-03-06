@@ -57,7 +57,7 @@ public class PlayerScript : MonoBehaviour
             }
         }
         tan = on_tan();
-        Debug.Log(tan);
+        //Debug.Log(tan);
         if (tan)
         {
             if(Input.GetButtonDown("Jump"))
@@ -161,7 +161,17 @@ public class PlayerScript : MonoBehaviour
         }
         
     }
-    
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Vine")&& Input.GetKey(KeyCode.W))
+        {
+            enabledClimb = true;
+            isClimbing = true;
+            m_LadderX = collision.transform.position.x;
+        }
+
+    }
+
     void OnTriggerExit2D(Collider2D collision)
     {
 
