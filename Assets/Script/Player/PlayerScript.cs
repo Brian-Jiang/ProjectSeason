@@ -222,4 +222,8 @@ public class PlayerScript : MonoBehaviour
         }
     }
     
+    public void SetSpeedRatio(float ratio)
+    {
+        speed = speed * ratio;
+    }
 }

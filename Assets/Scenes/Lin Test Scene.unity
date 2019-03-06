@@ -1152,6 +1152,80 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b329c62238205d4bb1e1fbe2b06c7d4, type: 3}
+--- !u!1001 &2556072190662986060
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2556072190901998912, guid: 970d9f1815709eb46ba9e3932973baaf,
+        type: 3}
+      propertyPath: m_Name
+      value: Fallen Leaves
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556072190901998940, guid: 970d9f1815709eb46ba9e3932973baaf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556072190901998940, guid: 970d9f1815709eb46ba9e3932973baaf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556072190901998940, guid: 970d9f1815709eb46ba9e3932973baaf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556072190901998940, guid: 970d9f1815709eb46ba9e3932973baaf,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556072190901998940, guid: 970d9f1815709eb46ba9e3932973baaf,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556072190901998940, guid: 970d9f1815709eb46ba9e3932973baaf,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556072190901998940, guid: 970d9f1815709eb46ba9e3932973baaf,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556072190901998940, guid: 970d9f1815709eb46ba9e3932973baaf,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556072190901998940, guid: 970d9f1815709eb46ba9e3932973baaf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556072190901998940, guid: 970d9f1815709eb46ba9e3932973baaf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556072190901998940, guid: 970d9f1815709eb46ba9e3932973baaf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556072190901998915, guid: 970d9f1815709eb46ba9e3932973baaf,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 970d9f1815709eb46ba9e3932973baaf, type: 3}
 --- !u!1001 &3262111284175948363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1433,6 +1507,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hiden Room
       objectReference: {fileID: 0}
+    - target: {fileID: 5354271939290637092, guid: ec02a6b870f07b14f827ff06d6633158,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5354271939290637094, guid: ec02a6b870f07b14f827ff06d6633158,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1557,11 +1636,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6233267576670152628, guid: bf50a941683fe3042844d8adc162f320,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6233267575034760408, guid: bf50a941683fe3042844d8adc162f320,
         type: 3}
       propertyPath: m_IsActive
@@ -1570,6 +1644,11 @@ PrefabInstance:
     - target: {fileID: 6233267576670152625, guid: bf50a941683fe3042844d8adc162f320,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233267576670152628, guid: bf50a941683fe3042844d8adc162f320,
+        type: 3}
+      propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

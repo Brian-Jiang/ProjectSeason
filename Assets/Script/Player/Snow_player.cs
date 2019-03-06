@@ -45,13 +45,13 @@ public class Snow_player : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ( collision.CompareTag("NextScene"))
+        /*if ( collision.CompareTag("NextScene"))
         {
             SceneManager.LoadScene("End"); //load the thank you for playing scene
         }
-        else if ( collision.CompareTag("Snowball"))
+        else */if ( collision.CompareTag("Enemy"))
         {
-            GameController.instance.GameOver();
+            GameController.instance.SetPlayerLives(0);
         }
     }
    
