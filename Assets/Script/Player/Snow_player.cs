@@ -51,7 +51,7 @@ public class Snow_player : MonoBehaviour
         }
         else if ( collision.CompareTag("Snowball"))
         {
-            SceneManager.LoadScene("GameOver");
+            GameController.instance.GameOver();
         }
     }
    
