@@ -574,11 +574,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6233267576670152628, guid: bf50a941683fe3042844d8adc162f320,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6233267575121485317, guid: bf50a941683fe3042844d8adc162f320,
         type: 3}
       propertyPath: tan_force
@@ -588,6 +583,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_JumpOffSpeed
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233267576670152628, guid: bf50a941683fe3042844d8adc162f320,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf50a941683fe3042844d8adc162f320, type: 3}
@@ -18943,11 +18943,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6038051339172086456, guid: c49b61024fb59444ab94f18244d571bf,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 563470754724585056, guid: c49b61024fb59444ab94f18244d571bf,
         type: 3}
       propertyPath: m_vine
@@ -18957,6 +18952,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 9.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6038051339172086456, guid: c49b61024fb59444ab94f18244d571bf,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c49b61024fb59444ab94f18244d571bf, type: 3}
