@@ -12,7 +12,9 @@ public class SpikeMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(next_att);
         next_att = start_time;
+        Debug.Log(next_att);
     }
 
     // Update is called once per frame
@@ -23,6 +25,8 @@ public class SpikeMove : MonoBehaviour
         {
             //Debug.Log(Time.time);
             //Debug.Log("act");
+            Debug.Log(next_att);
+            Debug.Log(Time.time);
             spike.SetActive(true);
            
         }
@@ -31,6 +35,8 @@ public class SpikeMove : MonoBehaviour
             //Debug.Log("NO act");
             spike.SetActive(false);
             next_att = Time.time + att_frq;
+            Debug.Log(next_att);
+            Debug.Log(Time.time);
         }
         
     }
