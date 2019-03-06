@@ -57,7 +57,7 @@ public class PlayerScript : MonoBehaviour
             }
         }
         tan = on_tan();
-        Debug.Log(tan);
+        //Debug.Log(tan);
         if (tan)
         {
             if(Input.GetButtonDown("Jump"))
