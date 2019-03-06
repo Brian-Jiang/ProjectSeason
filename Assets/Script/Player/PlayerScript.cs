@@ -124,7 +124,7 @@ public class PlayerScript : MonoBehaviour
             yMovement = m_rb.velocity.y;
 
             if (yMovement > 0 && !Input.GetButton("Jump"))
-                yMovement = 0.7f * yMovement;
+                yMovement = 0.8f * yMovement;
         }
         
         return yMovement;
