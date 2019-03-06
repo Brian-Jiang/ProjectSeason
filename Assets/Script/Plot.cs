@@ -5,10 +5,11 @@ using UnityEngine;
 public class Plot : MonoBehaviour
 {
     [SerializeField] private GameObject m_vine;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -26,6 +27,7 @@ public class Plot : MonoBehaviour
                 m_vine.SetActive(true);
             }
         }
+        
             
     }
 }
