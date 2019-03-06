@@ -551,7 +551,12 @@ PrefabInstance:
     - target: {fileID: 6233267575121485317, guid: bf50a941683fe3042844d8adc162f320,
         type: 3}
       propertyPath: tan_force
-      value: 300
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233267575121485317, guid: bf50a941683fe3042844d8adc162f320,
+        type: 3}
+      propertyPath: isClimbing
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf50a941683fe3042844d8adc162f320, type: 3}

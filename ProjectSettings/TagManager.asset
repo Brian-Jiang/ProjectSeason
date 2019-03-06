@@ -16,6 +16,7 @@ TagManager:
   - Snowball
   - Bound
   - Enemy
+  - Stopper
   layers:
   - Default
   - TransparentFX
