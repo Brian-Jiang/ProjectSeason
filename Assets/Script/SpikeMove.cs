@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class SpikeMove : MonoBehaviour
 {
-    [SerializeField] public float att_frq;
-    [SerializeField] public float att_time;
-    [SerializeField] public float start_time;
+    [SerializeField] private float att_frq;
+    [SerializeField] private float att_time;
+    [SerializeField] private float start_time;
     private float next_att;
-    [SerializeField] public GameObject spike;
+    [SerializeField] private GameObject spike;
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(next_att);
-        next_att = start_time;
-        Debug.Log(next_att);
+        //Debug.Log(next_att);
+        next_att = Time.time + start_time;
+        //Debug.Log(next_att);
     }
 
     // Update is called once per frame
@@ -25,8 +25,8 @@ public class SpikeMove : MonoBehaviour
         {
             //Debug.Log(Time.time);
             //Debug.Log("act");
-            Debug.Log(next_att);
-            Debug.Log(Time.time);
+            //Debug.Log(next_att);
+            //Debug.Log(Time.time);
             spike.SetActive(true);
            
         }
@@ -35,8 +35,8 @@ public class SpikeMove : MonoBehaviour
             //Debug.Log("NO act");
             spike.SetActive(false);
             next_att = Time.time + att_frq;
-            Debug.Log(next_att);
-            Debug.Log(Time.time);
+            //Debug.Log(next_att);
+            //Debug.Log(Time.time);
         }
         
     }
