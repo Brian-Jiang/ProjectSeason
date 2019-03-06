@@ -10,15 +10,15 @@ public class GameController : MonoBehaviour
     private static GameObject m_player;
 
     private bool m_GameOver = false;
-    [SerializeField] GameObject m_LastCheckPoint = null;
-    [SerializeField]private GameObject[] m_check_points;
+    [SerializeField] private Vector2 m_LastCheckPoint = Vector2.zero;
+    //[SerializeField]private GameObject[] m_check_points;
 
     private int m_currentLevel = 1;
     private int m_lives = 1;
 
     private void Awake()
     {
-        m_check_points = GameObject.FindGameObjectsWithTag("Check Point");
+        //m_check_points = GameObject.FindGameObjectsWithTag("Check Point");
 
         m_currentLevel = SceneManager.GetActiveScene().buildIndex;
 
@@ -50,21 +50,21 @@ public class GameController : MonoBehaviour
     {
         m_player = GameObject.FindGameObjectWithTag("Player");
 
-        if (m_LastCheckPoint)
+        if (m_LastCheckPoint != Vector2.zero && m_player)
         {
-            m_player.transform.position = m_LastCheckPoint.transform.position;
+            m_player.transform.position = m_LastCheckPoint;
         }
 
-        m_check_points = GameObject.FindGameObjectsWithTag("Check Point");
+        //m_check_points = GameObject.FindGameObjectsWithTag("Check Point");
     }
 
-    private void EmptyCheckPoints()
+    /*private void EmptyCheckPoints()
     {
         for (int i = 0; i < m_check_points.Length; i++)
         {
             Destroy(m_check_points[i]);
         }
-    }
+    }*/
 
     public void GameOver()
     {
@@ -85,8 +85,8 @@ public class GameController : MonoBehaviour
         m_lives = 1;
         m_currentLevel = level;
         SceneManager.LoadScene(level);
-        m_LastCheckPoint = null;
-        EmptyCheckPoints();
+        m_LastCheckPoint = Vector2.zero;
+        //EmptyCheckPoints();
     }
 
     public void LoadNextLevel()
@@ -95,11 +95,11 @@ public class GameController : MonoBehaviour
         m_lives = 1;
         m_currentLevel++;
         SceneManager.LoadScene(m_currentLevel);
-        m_LastCheckPoint = null;
-        EmptyCheckPoints();
+        m_LastCheckPoint = Vector2.zero;
+        //EmptyCheckPoints();
     }
 
-    public void CheckPoint(GameObject checkpoint)
+    public void CheckPoint(Vector2 checkpoint)
     {
         m_LastCheckPoint = checkpoint;
     }
