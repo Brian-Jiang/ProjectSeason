@@ -51,6 +51,7 @@ public class PlayerScript : MonoBehaviour
         {
             if (colliders[i].gameObject != gameObject && !colliders[i].gameObject.CompareTag("Vine"))
             {
+                Debug.Log(colliders[i].tag);
                 m_Grounded = true;
                 m_animator.SetBool("grounded", true);
             }
@@ -168,7 +169,7 @@ public class PlayerScript : MonoBehaviour
             isClimbing = true;
             m_LadderX = collision.transform.position.x;
         }
-        if (collision.CompareTag("Tanhuang"))
+        /*if (collision.CompareTag("Tanhuang"))
         {
             if (Input.GetButtonDown("Jump"))
             {
@@ -181,9 +182,7 @@ public class PlayerScript : MonoBehaviour
         {
             m_Grounded = false;
             m_rb.gravityScale = 1;
-        }
-
-
+        }*/
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -242,5 +241,10 @@ public class PlayerScript : MonoBehaviour
     public void SetSpeedRatio(float ratio)
     {
         speed = speed * ratio;
+    }
+
+    public void SetJumpRatio(float ratio)
+    {
+        m_JumpOffSpeed = m_JumpOffSpeed * ratio;
     }
 }

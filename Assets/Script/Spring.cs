@@ -9,13 +9,38 @@ public class Spring : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player"))
         {
-            m_rb2d = collision.GetComponent<Rigidbody2D>();
+            collision.collider.GetComponent<PlayerScript>().SetJumpRatio(m_JumpSpeed);
+            /*m_rb2d = collision.GetComponent<Rigidbody2D>();
             if(m_rb2d)
             {
-                m_rb2d.velocity = new Vector2(0f, m_JumpSpeed);
-            }
+                //m_rb2d.velocity = new Vector2(0f, m_JumpSpeed);
+            }*/
         }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+
+            collision.collider.GetComponent<PlayerScript>().SetJumpRatio(1/ m_JumpSpeed);
+            /*m_rb2d = collision.GetComponent<Rigidbody2D>();
+            if (m_rb2d)
+            {
+                //m_rb2d.velocity = new Vector2(0f, m_JumpSpeed);
+            }*/
+        }
+    }
+
+    private void OnColliderExit2D(Collider2D collision)
+    {
+
     }
 }
