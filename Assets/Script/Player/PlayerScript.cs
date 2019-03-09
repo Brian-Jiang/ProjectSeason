@@ -27,7 +27,6 @@ public class PlayerScript : MonoBehaviour
     //**********Climb**********
     [SerializeField]private bool enabledClimb = false;
     [SerializeField]private bool isClimbing = false;
-    private float m_LadderX;
 
     private Vector3 m_rb_vel;
     //***********tanhuang***********
@@ -56,16 +55,6 @@ public class PlayerScript : MonoBehaviour
                 m_animator.SetBool("grounded", true);
             }
         }
-        /**tan = on_tan();
-        //Debug.Log(tan);
-        if (tan)
-        {
-            if(Input.GetButtonDown("Jump"))
-            {
-
-            }
-            m_rb.gravityScale = -1;
-        }**/
     }
     
     protected virtual void Update()
@@ -140,7 +129,6 @@ public class PlayerScript : MonoBehaviour
         {
             m_rb.gravityScale = 0;
             isClimbing = true;
-            //this.transform.position = new Vector2(m_LadderX, this.transform.position.y);
         }
         else if(m_Grounded)
         {
@@ -151,13 +139,11 @@ public class PlayerScript : MonoBehaviour
         return yMovement*2f;
     }
 
-
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Vine"))
         {
             enabledClimb = true;
-            m_LadderX = collision.transform.position.x;
         }
         
     }
@@ -167,76 +153,26 @@ public class PlayerScript : MonoBehaviour
         {
             enabledClimb = true;
             isClimbing = true;
-            m_LadderX = collision.transform.position.x;
         }
-        /*if (collision.CompareTag("Tanhuang"))
-        {
-            if (Input.GetButtonDown("Jump"))
-            {
-                Debug.Log("jump");
-            }
-            m_Grounded = false;
-            m_rb.gravityScale = -tan_force;
-        }
-        if (collision.CompareTag("Stopper"))
-        {
-            m_Grounded = false;
-            m_rb.gravityScale = 1;
-        }*/
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
-
         if (collision.CompareTag("Vine"))
         {
             m_rb.gravityScale = 1;
             enabledClimb = false;
             isClimbing = false;
         }
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Platform"))
-        {
-            this.transform.parent = collision.collider.transform;
-        }
-        else if(collision.collider.CompareTag("Enemy"))
+        if(collision.collider.CompareTag("Enemy"))
         {
             GameController.instance.SetPlayerLives(0);
         }
     }
-
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Platform"))
-        {
-            this.transform.parent = null;
-        }
-    }
-    /**
-
-    bool on_tan()
-    {
-        Vector2 position = transform.position;
-        Vector2 direction = Vector2.down;
-        Debug.DrawRay(position, direction, Color.green);
-        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
-        if (hit.collider!=null)
-        {
-            Debug.Log("not null");
-            
-                return true;
-       
-        }
-        else
-        {
-            return false;
-        }
-    }
-    **/
     
     public void SetSpeedRatio(float ratio)
     {

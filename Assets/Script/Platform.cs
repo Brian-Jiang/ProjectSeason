@@ -51,4 +51,14 @@ public class Platform : MonoBehaviour
         m_isMoving = false;
         NextMove();
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.collider.transform.parent = this.transform;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        collision.collider.transform.parent = null;
+    }
 }
