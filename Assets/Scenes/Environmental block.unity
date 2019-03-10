@@ -395,7 +395,7 @@ PrefabInstance:
     - target: {fileID: 6233267575121485317, guid: bf50a941683fe3042844d8adc162f320,
         type: 3}
       propertyPath: tan_force
-      value: 10
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf50a941683fe3042844d8adc162f320, type: 3}
@@ -909,6 +909,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tanhuang
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041857209447641520, guid: c72254814440313458b6827d29106322,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6041857209447641524, guid: c72254814440313458b6827d29106322,
         type: 3}

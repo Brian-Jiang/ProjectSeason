@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private Vector2 m_LastCheckPoint = Vector2.zero;
     //[SerializeField]private GameObject[] m_check_points;
 
-    private int m_currentLevel = 0;
+    private int m_currentLevel = 1;
     private int m_lives = 1;
 
     private void Awake()
@@ -69,7 +69,7 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         m_GameOver = true;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void ReloadLevel()

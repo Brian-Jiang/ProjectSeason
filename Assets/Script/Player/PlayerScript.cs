@@ -31,9 +31,10 @@ public class PlayerScript : MonoBehaviour
 
     private Vector3 m_rb_vel;
     //***********tanhuang***********
-    
+    [SerializeField] public bool tan;
     [SerializeField] public float tan_force;
-    
+    [SerializeField] public float distance;
+    [SerializeField] public int layer;
     public LayerMask groundLayer;
     private void Awake()
     {
@@ -51,12 +52,11 @@ public class PlayerScript : MonoBehaviour
         {
             if (colliders[i].gameObject != gameObject && !colliders[i].gameObject.CompareTag("Vine"))
             {
-                Debug.Log(colliders[i].tag);
                 m_Grounded = true;
                 m_animator.SetBool("grounded", true);
             }
         }
-        /**tan = on_tan();
+        tan = on_tan();
         //Debug.Log(tan);
         if (tan)
         {
@@ -64,8 +64,8 @@ public class PlayerScript : MonoBehaviour
             {
 
             }
-            m_rb.gravityScale = -1;
-        }**/
+            m_rb.velocity= Vector2.up * tan_force;
+        }
     }
     
     protected virtual void Update()
@@ -125,7 +125,7 @@ public class PlayerScript : MonoBehaviour
             yMovement = m_rb.velocity.y;
 
             if (yMovement > 0 && !Input.GetButton("Jump"))
-                yMovement = 0.8f * yMovement;
+                yMovement = 0.7f * yMovement;
         }
         
         return yMovement;
@@ -169,20 +169,7 @@ public class PlayerScript : MonoBehaviour
             isClimbing = true;
             m_LadderX = collision.transform.position.x;
         }
-        /*if (collision.CompareTag("Tanhuang"))
-        {
-            if (Input.GetButtonDown("Jump"))
-            {
-                Debug.Log("jump");
-            }
-            m_Grounded = false;
-            m_rb.gravityScale = -tan_force;
-        }
-        if (collision.CompareTag("Stopper"))
-        {
-            m_Grounded = false;
-            m_rb.gravityScale = 1;
-        }*/
+
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -194,7 +181,6 @@ public class PlayerScript : MonoBehaviour
             enabledClimb = false;
             isClimbing = false;
         }
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -216,7 +202,6 @@ public class PlayerScript : MonoBehaviour
             this.transform.parent = null;
         }
     }
-    /**
 
     bool on_tan()
     {
@@ -236,15 +221,9 @@ public class PlayerScript : MonoBehaviour
             return false;
         }
     }
-    **/
     
     public void SetSpeedRatio(float ratio)
     {
         speed = speed * ratio;
-    }
-
-    public void SetJumpRatio(float ratio)
-    {
-        m_JumpOffSpeed = m_JumpOffSpeed * ratio;
     }
 }

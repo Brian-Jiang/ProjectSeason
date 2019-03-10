@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8250750129182774380}
   - component: {fileID: 8250750129182774382}
   - component: {fileID: 6018447356018568053}
-  - component: {fileID: 6904878433785842522}
+  - component: {fileID: 2155768004533907260}
   m_Layer: 0
   m_Name: Spike
   m_TagString: Enemy
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8250750129182774383}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.969, y: -0.066, z: 0}
+  m_LocalPosition: {x: -1, y: -0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,7 +93,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &6904878433785842522
+--- !u!60 &2155768004533907260
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,10 +119,7 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0.453125, y: -0.078125}
-      - {x: 0.453125, y: -0.09681724}
-      - {x: 0.41415066, y: 0.011901513}
       - {x: 0.421875, y: 0.0390625}
-      - {x: 0.3835206, y: 0.17465694}
       - {x: 0.390625, y: 0.1953125}
       - {x: 0.375, y: 0.203125}
       - {x: 0.34375, y: 0.203125}
@@ -157,16 +154,16 @@ PolygonCollider2D:
       - {x: -0.265625, y: -0.0859375}
       - {x: -0.28125, y: -0.046875}
       - {x: -0.296875, y: 0.03125}
-      - {x: -0.3125, y: 0.09063463}
+      - {x: -0.3125, y: 0.09375}
       - {x: -0.328125, y: 0.1484375}
       - {x: -0.328125, y: 0.1953125}
       - {x: -0.34375, y: 0.203125}
       - {x: -0.375, y: 0.203125}
-      - {x: -0.37345636, y: 0.1875}
-      - {x: -0.4172126, y: -0.02027399}
-      - {x: -0.456275, y: -0.171875}
+      - {x: -0.3828125, y: 0.1875}
+      - {x: -0.4296875, y: -0.0078125}
+      - {x: -0.46875, y: -0.171875}
       - {x: -0.46875, y: -0.2109375}
       - {x: -0.453125, y: -0.2265625}
       - {x: 0.4609375, y: -0.2265625}
       - {x: 0.4765625, y: -0.21875}
-      - {x: 0.45473135, y: -0.14527401}
+      - {x: 0.4765625, y: -0.1328125}
