@@ -18,6 +18,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]private bool m_Grounded = false;
     [SerializeField] private float m_JumpOffSpeed;
     private bool enabledJump = true;
+    [SerializeField]private bool m_HighJump = true;
     
     //**********Animation**********
     private Animator m_animator;
@@ -29,11 +30,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]private bool isClimbing = false;
 
     private Vector3 m_rb_vel;
-    //***********tanhuang***********
     
-    [SerializeField] public float tan_force;
-    
-    public LayerMask groundLayer;
     private void Awake()
     {
         m_rb = GetComponent<Rigidbody2D>();
@@ -50,8 +47,9 @@ public class PlayerScript : MonoBehaviour
         {
             if (colliders[i].gameObject != gameObject && !colliders[i].gameObject.CompareTag("Vine"))
             {
-                Debug.Log(colliders[i].tag);
+                //Debug.Log(colliders[i].tag);
                 m_Grounded = true;
+                m_HighJump = true;
                 m_animator.SetBool("grounded", true);
             }
         }
@@ -113,7 +111,7 @@ public class PlayerScript : MonoBehaviour
         {
             yMovement = m_rb.velocity.y;
 
-            if (yMovement > 0 && !Input.GetButton("Jump"))
+            if (yMovement > 0 && !Input.GetButton("Jump") && m_HighJump)
                 yMovement = 0.8f * yMovement;
         }
         
@@ -182,5 +180,10 @@ public class PlayerScript : MonoBehaviour
     public void SetJumpRatio(float ratio)
     {
         m_JumpOffSpeed = m_JumpOffSpeed * ratio;
+    }
+
+    public void SetHighJump(bool boolean)
+    {
+        m_HighJump = boolean;
     }
 }
