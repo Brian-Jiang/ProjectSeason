@@ -491,12 +491,20 @@ PrefabInstance:
     - target: {fileID: 6233267575121485318, guid: bf50a941683fe3042844d8adc162f320,
         type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< HEAD
       value: -19.59
+=======
+      value: -38.3
+>>>>>>> parent of cc48c6a... tan huang
       objectReference: {fileID: 0}
     - target: {fileID: 6233267575121485318, guid: bf50a941683fe3042844d8adc162f320,
         type: 3}
       propertyPath: m_LocalPosition.y
+<<<<<<< HEAD
       value: 0.01
+=======
+      value: 14.67
+>>>>>>> parent of cc48c6a... tan huang
       objectReference: {fileID: 0}
     - target: {fileID: 6233267575121485318, guid: bf50a941683fe3042844d8adc162f320,
         type: 3}
