@@ -6,10 +6,11 @@ public class Spring : MonoBehaviour
 {
     [SerializeField] private float m_JumpSpeed = 10f;
     private Rigidbody2D m_rb2d;
+    private Animator m_animator;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Awake()
     {
-        
+        m_animator = GetComponent<Animator>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -22,6 +23,10 @@ public class Spring : MonoBehaviour
             {
                 m_rb2d.velocity = new Vector2(0f, m_JumpSpeed);
             }
+
+            m_animator.Play("Mushroom_Jump");
+            //m_animator.SetBool("Jump", true);
+            //m_animator.SetBool("Jump", false);
         }
     }
 

@@ -2,80 +2,42 @@
 
 public class EnemyShooting : MonoBehaviour
 {
-    [SerializeField] private float att_dis;
+    [SerializeField] private float x, y;
+    [SerializeField] private float speed;
     [SerializeField] private float att_frq;
-    [SerializeField] private GameObject tra_bullet;
     [SerializeField] private GameObject bullet;
-    [SerializeField] private Vector3 firep;
-    [SerializeField] private bool trackingbul;
-    private GameObject cur_player;
-    private GameController m_control;
+    [SerializeField] private Transform firep;
     private SpriteRenderer m_render;
     private float nextAttack;
-    private Vector2 firePosition;
  
 
     // Start is called before the first frame update
     void Start()
     {
         //m_control = GameObject.FindGameObjectWithTag("GameCon")
-        m_control = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-        cur_player = m_control.GetPlayer();
         m_render = GetComponentInChildren<SpriteRenderer>();
+        if (!firep)
+            firep = transform;
         nextAttack = Time.time + att_frq;
 
     }
     private void Attack()
     {
-        if ((cur_player.transform.position.x - transform.position.x) < 0)
-        {
-            firePosition = transform.position + firep;
-        }
-        else
-        {
-            firePosition = transform.position - firep;
-        }
-       
         
-        if(trackingbul == false)
-        {
-            GameObject bulletobj = Instantiate(bullet, firePosition, transform.rotation);
-            Bullet bullet_n = bulletobj.GetComponent<Bullet>();
-            bullet_n.SetTarget(cur_player);
-        }
-        else
-        {
-            GameObject bulletobj = Instantiate(tra_bullet, firePosition, transform.rotation);
-            Bullet_Tra bullet_t = bulletobj.GetComponent<Bullet_Tra>();
-            bullet_t.SetTarget(cur_player);
-        }
-        
+        GameObject bulletobj = Instantiate(bullet, firep.position, transform.rotation);
+        Rigidbody2D m_bulletRB =  bulletobj.GetComponent<Rigidbody2D>();
+        Debug.Log(bulletobj.transform.position);
+        if (m_bulletRB)
+            m_bulletRB.velocity = new Vector2(x, y).normalized * speed;
         nextAttack = Time.time + att_frq;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (cur_player == null)
-            return;
-
-        if ((cur_player.transform.position.x - transform.position.x) < 0)
-        {
-            m_render.flipX = true;
-            
-            //transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else
-        {
-            m_render.flipX = false;
-            //transform.localScale = new Vector3(1, 1, 1);
-        }
-
-
         if (Time.time >= nextAttack)
         {
-            if ((cur_player.transform.position - transform.position).magnitude <= att_dis)
-                Attack();
+            Attack();
         }
     }
 }
