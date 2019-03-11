@@ -26,7 +26,7 @@ public class EnemyShooting : MonoBehaviour
         
         GameObject bulletobj = Instantiate(bullet, firep.position, transform.rotation);
         Rigidbody2D m_bulletRB =  bulletobj.GetComponent<Rigidbody2D>();
-        Debug.Log(bulletobj.transform.position);
+        //Debug.Log(bulletobj.transform.position);
         if (m_bulletRB)
             m_bulletRB.velocity = new Vector2(x, y).normalized * speed;
         nextAttack = Time.time + att_frq;

@@ -143,7 +143,11 @@ public class PlayerScript : MonoBehaviour
         {
             enabledClimb = true;
         }
-        
+
+        if (collision.CompareTag("Enemy"))
+        {
+            GameController.instance.SetPlayerLives(0);
+        }
     }
     void OnTriggerStay2D(Collider2D collision)
     {
