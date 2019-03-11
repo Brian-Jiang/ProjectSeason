@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6041857209447641525}
   - component: {fileID: 6041857209447641527}
   - component: {fileID: 1503311375}
-  - component: {fileID: 3992943997858065948}
+  - component: {fileID: 700721787}
   m_Layer: 2
   m_Name: Tanhuang
   m_TagString: Untagged
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpSpeed: 15
---- !u!95 &3992943997858065948
+--- !u!95 &700721787
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
