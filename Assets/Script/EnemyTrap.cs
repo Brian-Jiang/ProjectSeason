@@ -10,7 +10,7 @@ public class EnemyTrap : MonoBehaviour
     [SerializeField] private Transform m_SpawnPosition;
     private GameObject m_enemyInstance;
     private Rigidbody2D m_enemyRb2d;
-    private float m_DestroyDelay = -1f;
+    [SerializeField] private float m_DestroyDelay = -1f;
 
     // Start is called before the first frame update
     void Start()
