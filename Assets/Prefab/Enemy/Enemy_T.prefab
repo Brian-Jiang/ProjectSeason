@@ -145,6 +145,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 0
   y: 0
+  att_distanceX: 99
+  att_distanceY: 99
   speed: 0
   att_frq: 5
   bullet: {fileID: 1176327323267970091, guid: 0ef3170b6e20ad44d8c014e1cd035e38, type: 3}

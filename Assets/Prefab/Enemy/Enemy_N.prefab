@@ -233,7 +233,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: -1
   y: 0
+  att_distanceX: 99
+  att_distanceY: 99
   speed: 4
   att_frq: 10
   bullet: {fileID: 8919196176299532812, guid: 49e161b6083e8374e8d887ec909e2e52, type: 3}
   firep: {fileID: 0}
+  trackingbul: 0
