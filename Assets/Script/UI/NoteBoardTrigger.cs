@@ -12,24 +12,24 @@ public class NoteBoardTrigger : MonoBehaviour
     private void Update()
     {
         //note.SetActive(false);
-        count++;
-        if (count == 600)
-        {
-            note.SetActive(false);
-        }
+        //count++;
+        //if (count == 600)
+        //{
+        //    note.SetActive(false);
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        note.SetActive(true);
-        count = 0;
-
+        if(collision.CompareTag("Player"))
+            note.SetActive(true);
+        //count = 0;
     }
 
-    private void OnTriggerExit2D(Collider other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        //note.SetActive(false);
+        if (collision.CompareTag("Player"))
+            note.SetActive(false);
     }
-
 
 }

@@ -9833,7 +9833,7 @@ GameObject:
   - component: {fileID: 1345485144}
   - component: {fileID: 1345485146}
   - component: {fileID: 1345485145}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: NoteBoard1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

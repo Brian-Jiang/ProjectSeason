@@ -549,11 +549,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6233267576670152628, guid: bf50a941683fe3042844d8adc162f320,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6233267575121485317, guid: bf50a941683fe3042844d8adc162f320,
         type: 3}
       propertyPath: tan_force
@@ -563,6 +558,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_JumpOffSpeed
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233267576670152628, guid: bf50a941683fe3042844d8adc162f320,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf50a941683fe3042844d8adc162f320, type: 3}
@@ -1263,7 +1263,7 @@ GameObject:
   - component: {fileID: 258451459}
   - component: {fileID: 258451458}
   - component: {fileID: 258451457}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: NoteBoardImage1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37792,7 +37792,7 @@ GameObject:
   - component: {fileID: 1707208636}
   - component: {fileID: 1707208634}
   - component: {fileID: 1707208635}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: NoteBoardImage2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39289,7 +39289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2044751488}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: NoteBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
