@@ -10,6 +10,7 @@ public class Cam : MonoBehaviour
     [SerializeField] public Transform player_p;
     [SerializeField] public float move_speed;
     [SerializeField] public float speed_up;
+    [SerializeField] public float upper_bound;
     private float change_speed;
 
 
@@ -19,8 +20,13 @@ public class Cam : MonoBehaviour
     {
 
 
-        Debug.Log(go_up_speed);
+        //Debug.Log(go_up_speed);
 
+        go_up_speed += (int)(Time.time / speed_up) * 0.2f;
+        if (go_up_speed > upper_bound)
+        {
+            go_up_speed = upper_bound;
+        }
 
 
         m_rb = GetComponent<Rigidbody2D>();
@@ -34,9 +40,16 @@ public class Cam : MonoBehaviour
     {
         if (Time.time >= change_speed)
         {
-            go_up_speed += 0.2f;
+            if (go_up_speed + 0.2f < upper_bound)
+            {
+                go_up_speed += 0.2f;
+            }
+            else
+            {
+                go_up_speed = upper_bound;
+            }
             change_speed = Time.time + speed_up;
-            Debug.Log(Time.time);
+            //Debug.Log(Time.time);
         }
 
         Move();
