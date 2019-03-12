@@ -3,6 +3,7 @@
 public class EnemyShooting : MonoBehaviour
 {
     [SerializeField] private float x, y;
+    [SerializeField] private float att_distanceX, att_distanceY;
     [SerializeField] private float speed;
     [SerializeField] private float att_frq;
     [SerializeField] private GameObject bullet;
@@ -26,21 +27,24 @@ public class EnemyShooting : MonoBehaviour
     }
     private void Attack()
     {
-        if (trackingbul == false)
+        if (Mathf.Abs(cur_player.transform.position.x - this.transform.position.x) < att_distanceX && Mathf.Abs(cur_player.transform.position.y - this.transform.position.y) < att_distanceY)
         {
-            GameObject bulletobj = Instantiate(bullet, firep.position, transform.rotation);
-            Rigidbody2D m_bulletRB = bulletobj.GetComponent<Rigidbody2D>();
-            if (m_bulletRB)
-                m_bulletRB.velocity = new Vector2(x, y).normalized * speed;
-        }
-        else
-        {
-            GameObject bulletobj = Instantiate(bullet, firep.position, transform.rotation);
-            Bullet_Tra bullet_t = bulletobj.GetComponent<Bullet_Tra>();
-            bullet_t.SetTarget(cur_player);
-        }
+            if (trackingbul == false)
+            {
+                GameObject bulletobj = Instantiate(bullet, firep.position, transform.rotation);
+                Rigidbody2D m_bulletRB = bulletobj.GetComponent<Rigidbody2D>();
+                if (m_bulletRB)
+                    m_bulletRB.velocity = new Vector2(x, y).normalized * speed;
+            }
+            else
+            {
+                GameObject bulletobj = Instantiate(bullet, firep.position, transform.rotation);
+                Bullet_Tra bullet_t = bulletobj.GetComponent<Bullet_Tra>();
+                bullet_t.SetTarget(cur_player);
+            }
 
-        nextAttack = Time.time + att_frq;
+            nextAttack = Time.time + att_frq;
+        }
     }
 
     // Update is called once per frame
