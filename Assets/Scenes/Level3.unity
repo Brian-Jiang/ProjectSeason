@@ -7612,7 +7612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 590fe0133f2054e5f97d3eef91472b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  note: {fileID: 118250342}
+  note: {fileID: 164757566}
 --- !u!61 &926996444
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9485,7 +9485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 590fe0133f2054e5f97d3eef91472b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  note: {fileID: 1345485143}
+  note: {fileID: 926996441}
 --- !u!1001 &1194468522
 PrefabInstance:
   m_ObjectHideFlags: 0
