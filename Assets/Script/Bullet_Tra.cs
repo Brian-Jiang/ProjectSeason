@@ -21,7 +21,7 @@ public class Bullet_Tra : MonoBehaviour
         m_rdg = GetComponent<Rigidbody2D>();
         if (target != null)
         {
-            Debug.Log("Not null");
+            //Debug.Log("Not null");
             currentDirection = (target.transform.position - transform.position).normalized;
 
             m_rdg.AddForce(currentDirection * speed);
