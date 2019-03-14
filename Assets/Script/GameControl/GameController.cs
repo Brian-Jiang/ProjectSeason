@@ -16,6 +16,18 @@ public class GameController : MonoBehaviour
     private int m_currentLevel = 0;
     private int m_lives = 1;
 
+    //***AUDIO SOURCE***
+    public AudioClip JumpClip;
+    public AudioSource JumpSource;
+    public AudioClip SpringClip;
+    public AudioSource SpringSource;
+
+    void Start()
+    {
+        JumpSource.clip = JumpClip;
+        SpringSource.clip = SpringClip;
+    }
+
     private void Awake()
     {
         //m_check_points = GameObject.FindGameObjectsWithTag("Check Point");
@@ -112,5 +124,15 @@ public class GameController : MonoBehaviour
     public void SetPlayerLives(int lives)
     {
         m_lives = lives;
+    }
+
+    public void JumpSound()
+    {
+        JumpSource.Play();
+    }
+
+    public void SpringSound()
+    {
+        SpringSource.Play();
     }
 }
