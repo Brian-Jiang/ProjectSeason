@@ -17,15 +17,11 @@ public class GameController : MonoBehaviour
     private int m_lives = 1;
 
     //***AUDIO SOURCE***
-    public AudioClip JumpClip;
-    public AudioSource JumpSource;
-    public AudioClip SpringClip;
-    public AudioSource SpringSource;
+    private AudioSource m_audioSource;
 
     void Start()
     {
-        JumpSource.clip = JumpClip;
-        SpringSource.clip = SpringClip;
+        m_audioSource = GetComponent<AudioSource>();
     }
 
     private void Awake()
@@ -126,13 +122,8 @@ public class GameController : MonoBehaviour
         m_lives = lives;
     }
 
-    public void JumpSound()
+    public void PlayAudioClip(AudioClip audioClip)
     {
-        JumpSource.Play();
-    }
-
-    public void SpringSound()
-    {
-        SpringSource.Play();
+        m_audioSource.PlayOneShot(audioClip);
     }
 }

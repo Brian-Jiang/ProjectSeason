@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float m_JumpOffSpeed;
     private bool enabledJump = true;
     [SerializeField]private bool m_HighJump = true;
+    [SerializeField] private AudioClip m_jumpSoundEffect;
     
     //**********Animation**********
     private Animator m_animator;
@@ -102,6 +103,8 @@ public class PlayerScript : MonoBehaviour
         {
             yMovement = m_JumpOffSpeed;
             m_Grounded = false;
+            if (m_jumpSoundEffect)
+                GameController.instance.PlayAudioClip(m_jumpSoundEffect);
             m_animator.SetBool("grounded", false);
         }
         else if(isClimbing)

@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpSpeed: 15
+  m_springSoundEffect: {fileID: 8300000, guid: 2605e4b09b8404a9a870a184a384ab45, type: 3}
 --- !u!95 &700721787
 Animator:
   serializedVersion: 3

@@ -7,6 +7,7 @@ public class Spring : MonoBehaviour
     [SerializeField] private float m_JumpSpeed = 10f;
     private Rigidbody2D m_rb2d;
     private Animator m_animator;
+    [SerializeField] private AudioClip m_springSoundEffect;
 
     private void Awake()
     {
@@ -24,6 +25,8 @@ public class Spring : MonoBehaviour
                 m_rb2d.velocity = new Vector2(0f, m_JumpSpeed);
             }
 
+            if(m_springSoundEffect)
+                GameController.instance.PlayAudioClip(m_springSoundEffect);
             m_animator.Play("Mushroom_Jump");
             //m_animator.SetBool("Jump", true);
             //m_animator.SetBool("Jump", false);
