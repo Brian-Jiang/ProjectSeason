@@ -696,7 +696,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 'Move:   Left /A, Right / D
 
-    Jump:   Up'
+    Jump:   Space'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b3518a3892ae842e284e10c6f31634d3, type: 2}
   m_sharedMaterial: {fileID: 21835239833633446, guid: b3518a3892ae842e284e10c6f31634d3,
