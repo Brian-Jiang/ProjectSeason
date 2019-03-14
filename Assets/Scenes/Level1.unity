@@ -34398,6 +34398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 943214530}
   - component: {fileID: 943214531}
+  - component: {fileID: 943214532}
   m_Layer: 0
   m_Name: Spring
   m_TagString: Untagged
@@ -34429,7 +34430,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2605e4b09b8404a9a870a184a384ab45, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -34515,6 +34516,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &943214532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943214529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d365ca256f4414747a2c99a84e2c6cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LastCheckPoint: {x: 0, y: 0}
+  JumpClip: {fileID: 8300000, guid: 01a7086d3ba034e5d9b99456dd546f0e, type: 3}
+  JumpSource: {fileID: 1568959718}
+  SpringClip: {fileID: 8300000, guid: 2605e4b09b8404a9a870a184a384ab45, type: 3}
+  SpringSource: {fileID: 943214531}
 --- !u!1001 &948812546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37210,7 +37228,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1568959717}
   - component: {fileID: 1568959718}
-  - component: {fileID: 1568959720}
   - component: {fileID: 1568959719}
   m_Layer: 0
   m_Name: Jump
@@ -37344,22 +37361,8 @@ MonoBehaviour:
   m_LastCheckPoint: {x: 0, y: 0}
   JumpClip: {fileID: 8300000, guid: 01a7086d3ba034e5d9b99456dd546f0e, type: 3}
   JumpSource: {fileID: 1568959718}
-  SpringClip: {fileID: 0}
-  SpringSource: {fileID: 0}
---- !u!114 &1568959720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1568959716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b506c766da1c44fba3190d3d079cb8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  JumpClip: {fileID: 8300000, guid: 01a7086d3ba034e5d9b99456dd546f0e, type: 3}
-  JumpSource: {fileID: 1568959718}
+  SpringClip: {fileID: 8300000, guid: 2605e4b09b8404a9a870a184a384ab45, type: 3}
+  SpringSource: {fileID: 943214531}
 --- !u!1001 &1589349179
 PrefabInstance:
   m_ObjectHideFlags: 0
