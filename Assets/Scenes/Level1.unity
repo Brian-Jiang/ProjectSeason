@@ -549,11 +549,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6233267576670152628, guid: bf50a941683fe3042844d8adc162f320,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6233267575121485317, guid: bf50a941683fe3042844d8adc162f320,
         type: 3}
       propertyPath: tan_force
@@ -563,6 +558,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_JumpOffSpeed
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233267576670152628, guid: bf50a941683fe3042844d8adc162f320,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf50a941683fe3042844d8adc162f320, type: 3}
@@ -37012,9 +37012,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Press F to grow something...
-
-    Try to Climb:   W'
+  m_text: "    Press F to awake the\n    power of nature!!!\n        Climb:   W"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b3518a3892ae842e284e10c6f31634d3, type: 2}
   m_sharedMaterial: {fileID: 21835239833633446, guid: b3518a3892ae842e284e10c6f31634d3,
@@ -38769,12 +38767,12 @@ MonoBehaviour:
   m_margin: {x: -272.78275, y: 15.279914, z: -132.06215, w: -61.883656}
   m_textInfo:
     textComponent: {fileID: 1843539951}
-    characterCount: 42
+    characterCount: 53
     spriteCount: 0
-    spaceCount: 14
-    wordCount: 8
+    spaceCount: 37
+    wordCount: 4
     linkCount: 0
-    lineCount: 3
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 1
