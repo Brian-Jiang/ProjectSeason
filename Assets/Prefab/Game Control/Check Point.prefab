@@ -121,3 +121,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CheckedPoint: {fileID: 21300000, guid: d1c64864edc451a43946bf4afbc2e1ed, type: 3}
   m_isTriggered: 0
+  m_audioClip: {fileID: 8300000, guid: 91a4beff0281c4bb4a2851989fb8b70d, type: 3}

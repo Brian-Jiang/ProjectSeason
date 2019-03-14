@@ -7,6 +7,7 @@ public class CheckPoint : MonoBehaviour
     [SerializeField] private Sprite m_CheckedPoint;
     private SpriteRenderer m_sprd;
     public bool m_isTriggered = false;
+    [SerializeField] private AudioClip m_audioClip;
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class CheckPoint : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             GameController.instance.CheckPoint(this.transform.position);
+            GameController.instance.PlayAudioClip(m_audioClip);
             m_sprd.sprite = m_CheckedPoint;
             Destroy(this);
         }
