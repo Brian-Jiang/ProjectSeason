@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class UiManager: MonoBehaviour
 {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && GameController.instance.GetCurrentScene() == 1)
         {
             ResumeButton();
         }
@@ -33,7 +32,7 @@ public class UiManager: MonoBehaviour
 
     public void ToStartMenuButton()
     {
-        SceneManager.LoadScene("Srart Menu");
+        GameController.instance.LoadLevel(0);
     }
 
     public static void ToStartMenu()

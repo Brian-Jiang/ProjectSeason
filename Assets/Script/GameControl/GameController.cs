@@ -82,6 +82,7 @@ public class GameController : MonoBehaviour
 
     public void ReloadLevel()
     {
+        Debug.Log(1);
         m_GameOver = false;
         m_lives = 1;
         SceneManager.LoadScene(m_currentLevel);
@@ -125,5 +126,12 @@ public class GameController : MonoBehaviour
     public void PlayAudioClip(AudioClip audioClip)
     {
         m_audioSource.PlayOneShot(audioClip);
+    }
+
+    public int GetCurrentScene()
+    {
+        //it will return gameover scene;
+        int current_Scene = SceneManager.GetActiveScene().buildIndex;
+        return current_Scene;
     }
 }
