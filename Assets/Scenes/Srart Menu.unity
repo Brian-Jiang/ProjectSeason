@@ -1241,7 +1241,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: By Epix Six
+  m_text: By Epic Six
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b3518a3892ae842e284e10c6f31634d3, type: 2}
   m_sharedMaterial: {fileID: 21835239833633446, guid: b3518a3892ae842e284e10c6f31634d3,
